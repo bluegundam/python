@@ -25,6 +25,7 @@ def get_msg(c, d , calc_val, method):
 arg1=2
 arg2="10"
 
+
 result = get_sum(b=arg2, a=arg1)
 msg = get_msg(c=arg1, d=arg2, calc_val=result, method="get_sum")
 print(msg)
