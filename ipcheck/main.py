@@ -9,12 +9,14 @@ from common_mail import send_mail as sm
 URL = "https://www.whatismyip.com/"
 agent = {"User-Agent":"Mozilla/5.0"}
 
-# result = requests.get(URL, headers=agent)
-# soup = BeautifulSoup(result.text, 'html.parser')
+result = requests.get(URL, headers=agent)
+soup = BeautifulSoup(result.text, 'html.parser')
 
+print(soup)
 
-result_file = open('D:/600.workspace/00.python/python/ipcheck/aa1.html', mode='rt', encoding='utf-8')
-soup = BeautifulSoup(result_file, 'html.parser')
+# result_file = open('ipcheck/aa1.html', mode='rt', encoding='utf-8')
+# soup = BeautifulSoup(result_file, 'html.parser')
+# result_file.close()
 
 card_body = soup.find("div", {"class" : "card-body"}).find_all("li", {"class" : "list-group-item"})
 
@@ -40,7 +42,7 @@ print("-----------------------")
 
 print(f"Public IP : {public_ip}")
 
-result_file.close()
+
 
 # 확인된 public ip 메일 발송
 
@@ -48,8 +50,8 @@ addr = 'backfire000@naver.com'
 subj_layout = 'Public IP share 2'
 cont_layout = f"Public IP : {public_ip}"
 
-try:
-    sm(addr, subj_layout, cont_layout)
-except Exception as ex:
-    print('에러발생', ex)
+# try:
+#     sm(addr, subj_layout, cont_layout)
+# except Exception as ex:
+#     print('에러발생', ex)
 
