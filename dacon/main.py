@@ -5,11 +5,11 @@ import math
 start_time = datetime.today().strftime("%Y%m%d_%H%M%S")
 
 filter_file_path = "dacon/data/filter.csv" 
-# target_file_path = "dacon/data/train_2002.csv"
-# result_file_path = f"dacon/data/train_2002_result_{start_time}.csv"
+target_file_path = "dacon/data/train_2002.csv"
+result_file_path = f"dacon/data/train_2002_result_{start_time}.csv"
 
-target_file_path = "dacon/data/train-UTF_bangsil.csv"
-result_file_path = f"dacon/data/train-UTF_bangsil_{start_time}.csv"
+# target_file_path = "dacon/data/train-UTF_bangsil.csv"
+# result_file_path = f"dacon/data/train-UTF_bangsil_{start_time}.csv"
 
 df1 = pd.read_csv(filter_file_path, encoding = 'UTF-8')
 pattern_data = df1['FILTER']
@@ -89,8 +89,8 @@ for target_item in target_text :
 fw_time = datetime.today().strftime("%Y%m%d_%H%M%S")
 ### 4. CSV 파일로 쓰기
 
-# target_data.to_csv(result_file_path, encoding = 'UTF-8')
-target_data.to_csv(result_file_path, encoding = 'ms949')
+target_data.to_csv(result_file_path, encoding = 'UTF-8')
+# target_data.to_csv(result_file_path, encoding = 'ms949')
 ###
 
 end_time = datetime.today().strftime("%Y%m%d_%H%M%S")
